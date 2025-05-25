@@ -1,0 +1,73 @@
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+}
+
+.left-section, .right-section {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.typing {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 3px solid black;
+  overflow: hidden;
+  animation: blink 0.3s steps(1) infinite;
+}
+
+@keyframes blink {
+  0% { border-color: transparent; }
+  50% { border-color: black; }
+  100% { border-color: transparent; }
+}
+
+.quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.buttons button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+  background-color: #0059c1;
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  .landing-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5rem;
+  }
+
+  .left-section, .right-section {
+    width: 50%;
+    margin-bottom: 0;
+  }
+
+  .typing {
+    font-size: 4rem;
+  }
+}

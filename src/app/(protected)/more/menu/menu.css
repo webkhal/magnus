@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.section {
+  border: 1px solid #999;
+  padding: 12px;
+  border-radius: 4px;
+  min-width: 280px;
+  background: #fff;
+}
+
+h2 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 6px 10px;
+  border: 1px solid #999;
+  background: white;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+button.active {
+  border-bottom: 2px solid black;
+  font-weight: bold;
+}
+
+.content {
+  font-size: 14px;
+  color: #000;
+}

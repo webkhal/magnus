@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String?
+  email     String   @unique
+  password  String
+  otp       String?  // <- Add this
+  otpExpiry DateTime? // <- And this
+}
+
+
+
+
+model Employee {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  firstName String
+  lastName  String
+  email     String   @unique
+  mobile    String
+  dob       String
+  gender    String
+  address   String
+  country   String
+  city      String
+  otherCity Boolean
+  createdAt DateTime @default(now())
+}
+
+
+
+
+model Country {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  name   String  @unique
+  states State[]
+}
+
+model State {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  country   Country @relation(fields: [countryId], references: [id])
+  countryId String @db.ObjectId
+  cities    City[]
+}
+
+model City {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  state   State   @relation(fields: [stateId], references: [id])
+  stateId String @db.ObjectId
+  
+}
+
+
+model Image {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  fileName String
+  base64   String
+}
+
