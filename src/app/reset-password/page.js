@@ -1,5 +1,7 @@
+'use client';
+
 import { Suspense } from 'react';
-import ResetPasswordPage from './ResetPasswordClient';
+import ResetPasswordPage from './reset-passwordClient.js';
 
 export default function Page() {
   return (
