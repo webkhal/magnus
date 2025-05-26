@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 
+export const dynamic = 'force-dynamic';
+
 export default function ResetPasswordPage() {
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
