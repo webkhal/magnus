@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 function Page() {
   const [file, setFile] = useState(null);
@@ -35,7 +36,6 @@ function Page() {
 
       const data = await res.json();
 
-      // Use returned base64 string for immediate display
       setImages((prev) => [
         ...prev,
         { name: data.image.fileName, url: data.image.base64 },
@@ -105,10 +105,12 @@ function Page() {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginTop: '20px' }}>
           {images.map((img, index) => (
             <div key={index} style={{ textAlign: 'center' }}>
-              <img
+              <Image
                 src={img.url}
                 alt={img.name}
-                style={{ width: '150px', height: '150px', objectFit: 'cover', borderRadius: '8px' }}
+                width={150}
+                height={150}
+                style={{ borderRadius: '8px', objectFit: 'cover' }}
               />
               <p>{img.name}</p>
             </div>
