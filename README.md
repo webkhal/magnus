@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Magnus
+Magnus is a full-stack web application built with Next.js, MongoDB, and Prisma. This project was developed as a task-based real-world application, implementing complete CRUD operations and additional functional modules.
 
-## Getting Started
+🚀 Getting Started
+Clone the repository and install dependencies:
 
-First, run the development server:
+bash
+Copy
+Edit
+git clone https://github.com/webkhal/magnus.git
+cd magnus
+npm install
+Run the development server:
 
-```bash
+bash
+Copy
+Edit
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 in your browser to see the application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🛠️ Tech Stack
+Frontend: Next.js (App Router), React
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Backend: API Routes, Prisma ORM
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Database: MongoDB
 
-## Learn More
+Auth: NextAuth.js (Email/Password, Google OAuth)
 
-To learn more about Next.js, take a look at the following resources:
+Styling: CSS Modules / Inline Styling (as per project need)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Hosting: Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+✨ Features
+✅ Core Functionalities
+🔐 User Authentication (Register, Login, Forgot/Reset Password with OTP)
 
-## Deploy on Vercel
+📋 Employee Management System:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create, Read, Update, Delete employee records
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Form validation and error handling
+
+🗂️ Master Data Management:
+
+Predefined Country, State, and City dropdowns using seeded data via Prisma
+
+🔎 Employee Search with filters
+
+🛒 Simple Cart System (for extended modules)
+
+🖼️ Image Uploading using Prisma and MongoDB
+
+🎨 Typing animation and responsive UI for greeting page
+
+🧪 Sample Pages
+/employee/create – Create Employee Form
+
+/employee/search – Search and filter employees
+
+/reset-password – Reset password via OTP
+
+/login and /register – Authentication pages
+
+/dashboard – Protected area post-login
+
+📦 Deployment
+This project is deployed on Vercel. To deploy your own:
+
+Push your code to GitHub
+
+Go to vercel.com and import your repo
+
+Set up environment variables (MongoDB URI, Auth secrets, etc.)
+
+Deploy 🚀
+
+📚 Learn More
+Next.js Documentation
+
+Prisma Documentation
+
+MongoDB Docs
+
+Vercel Deployment
+
+🙌 Acknowledgements
+This project was built as part of a real-time development task to showcase full-stack development skills with real-world scenarios.
+
