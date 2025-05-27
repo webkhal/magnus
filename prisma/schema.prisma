@@ -23,9 +23,9 @@ model Employee {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   firstName String
   lastName  String
-  email     String   @unique
+  email     String  @unique 
   mobile    String
-  dob       String
+  dob       DateTime
   gender    String
   address   String
   country   String

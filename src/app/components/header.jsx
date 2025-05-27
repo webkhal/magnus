@@ -1,6 +1,10 @@
 "use client";
 
 export default function Header() {
+  const handleLogout = () => {
+    window.location.href = '/login';
+  };
+
   return (
     <header
       style={{
@@ -25,9 +29,7 @@ export default function Header() {
           cursor: 'pointer',
           fontSize: '0.9rem',
         }}
-        onClick={() => {
-          console.log('Logout clicked');
-        }}
+        onClick={handleLogout}
       >
         Logout
       </button>

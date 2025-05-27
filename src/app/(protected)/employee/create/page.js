@@ -21,6 +21,9 @@ export default function CreateEmployeePage() {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
 
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
   // Load countries on mount
   useEffect(() => {
     fetch('/api/location/countries')
@@ -62,7 +65,6 @@ export default function CreateEmployeePage() {
     setFormData(prev => ({ ...prev, city: '' }));
   }, [formData.state]);
 
-  // Handle form input change
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
@@ -71,9 +73,11 @@ export default function CreateEmployeePage() {
     }));
   };
 
-  // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage('');
+    setSuccessMessage('');
+     
 
     try {
       const res = await fetch('/api/protected/employee/create', {
@@ -84,8 +88,8 @@ export default function CreateEmployeePage() {
 
       const result = await res.json();
 
-      if (result.success) {
-        alert('Employee created successfully!');
+      if (res.ok && result.success) {
+        setSuccessMessage('Employee created successfully!');
         setFormData({
           firstName: '',
           lastName: '',
@@ -102,11 +106,11 @@ export default function CreateEmployeePage() {
         setStates([]);
         setCities([]);
       } else {
-        alert('Error: ' + (result.message || 'Unknown error'));
+        setErrorMessage(result.message || 'Something went wrong. Please try again.');
       }
     } catch (err) {
       console.error('Submit Error:', err);
-      alert('Something went wrong');
+      setErrorMessage('Server error. Please try again.');
     }
   };
 
@@ -178,6 +182,12 @@ export default function CreateEmployeePage() {
           </div>
 
           <div style={{ marginTop: '1.5rem' }}>
+            {errorMessage && (
+              <p style={{ color: 'red', marginBottom: '0.5rem' }}>{errorMessage}</p>
+            )}
+            {successMessage && (
+              <p style={{ color: 'green', marginBottom: '0.5rem' }}>{successMessage}</p>
+            )}
             <button type="submit">Submit</button>
           </div>
         </fieldset>
